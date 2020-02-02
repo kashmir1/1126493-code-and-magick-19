@@ -3,7 +3,7 @@
 var SHADOW_WIDTH = 420;
 var SHADOW_HEIGHT = 270;
 var BAR_WIDTH = 40;
-var BAR_HEIGTH = -150;
+var BAR_HEIGTH = 150;
 var BAR_NAME_HEIGTH = 270;
 var BAR_TIME_HEIGTH = 90;
 var BAR_Y = 250;
@@ -88,7 +88,7 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillText(names[i], BAR_X + (BAR_WIDTH + BAR_GAP) * i, BAR_NAME_HEIGTH); /* Имена */
     ctx.fillText(Math.round(times[i]), BAR_X + (BAR_WIDTH + BAR_GAP) * i, BAR_TIME_HEIGTH);
     ctx.fillStyle = getBarColor(names[i]);
-    ctx.fillRect(BAR_X + (BAR_WIDTH + BAR_GAP) * i, BAR_Y, BAR_WIDTH, (BAR_HEIGTH * times[i]) / maxTime);/* Столбцы */
+    ctx.fillRect(BAR_X + (BAR_WIDTH + BAR_GAP) * i, BAR_Y, BAR_WIDTH, (BAR_HEIGTH * times[i]) / maxTime * -1);/* Столбцы */
   }
 };
 
