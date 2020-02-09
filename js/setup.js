@@ -37,56 +37,11 @@ for (var i = 0; i < WIZARD_QUANTITY; i++) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
 
   //Задаем вывод характеристик из массивов
-  wizardElement.querySelector('.setup-similar-label').textContent = wizardNames[arrayRandElement(wizardNames)]
-  + ' ' + wizardSurnames[arrayRandElement(wizardSurnames)];
-  wizardElement.querySelector('.wizard-coat').style.fill = coatColors[i];
-  wizardElement.querySelector('.wizard-eyes').style.fill = eyesColors[i];
+  wizardElement.querySelector('.setup-similar-label').textContent = wizardNames[arrayRandElement(wizardNames)] + ' ' + wizardSurnames[arrayRandElement(wizardSurnames)]
+  wizardElement.querySelector('.wizard-coat').style.fill = coatColors[arrayRandElement(coatColors)];
+  wizardElement.querySelector('.wizard-eyes').style.fill = eyesColors[arrayRandElement(eyesColors)];
 
   similarListElement.appendChild(wizardElement);
 }
-
-// var userDialog = document.querySelector('.setup');
-// userDialog.classList.remove('hidden');
-//
-// document.querySelector('.setup-similar').classList.remove('hidden');
-//
-// var similarListElement = userDialog.querySelector('.setup-similar-list');
-//
-// var similarWizardTemplate = document.querySelector('#similar-wizard-template')
-//   .content
-//   .querySelector('.setup-similar-item');
-//
-//
-
-
-//
-// var WIZARD_QUANTITY = 4;
-//
-//
-
-
-//
-// /* Собираем объект характеристик маг
-// *  Задаем функцию
-// * Объявляем пустой массив куда запишем магов
-// * Создадим цикл
-// * Создаем объект куда запишем характеристики магов
-// * */
-// var createWizard = function (wizard) {
-//   var wizards = [];
-//   for (var i = 0; i < WIZARD_QUANTITY; i++) {
-//     var wizard = {
-//       name: wizardNames[arrayRandElement(wizardNames)] + ' ' + wizardSurnames[arrayRandElement(wizardSurnames)],
-//       coatColors: coatColors[arrayRandElement(coatColors)],
-//       eyeColor: eyesColors[arrayRandElement(eyesColors)]
-//     };
-//     wizards.push(wizard);
-//   }
-//   return wizards;
-// };
-//
-// wizards = createWizard(wizard);
-//
-//
 
 
