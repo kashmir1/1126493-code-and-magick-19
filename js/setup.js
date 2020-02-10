@@ -32,16 +32,21 @@ var arrayRandElement = function (arr) {
   return Math.floor(Math.random() * arr.length);
 };
 
+var wizardCharacter = {
+  name: wizardNames[arrayRandElement(wizardNames)] + ' ' + wizardSurnames[arrayRandElement(wizardSurnames)],
+  coat: coatColors[arrayRandElement(coatColors)],
+  eyes: eyesColors[arrayRandElement(eyesColors)]
+};
+
+
 //выводим персонажей
 for (var i = 0; i < WIZARD_QUANTITY; i++) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
 
   //Задаем вывод характеристик из массивов
-  wizardElement.querySelector('.setup-similar-label').textContent = wizardNames[arrayRandElement(wizardNames)] + ' ' + wizardSurnames[arrayRandElement(wizardSurnames)]
-  wizardElement.querySelector('.wizard-coat').style.fill = coatColors[arrayRandElement(coatColors)];
+  wizardElement.querySelector('.setup-similar-label').textContent = wizardNames[arrayRandElement(wizardNames)] + ' ' + wizardSurnames[arrayRandElement(wizardSurnames)];
+  wizardElement.querySelector('.wizard-coat').style.fill = wizardCharacter.coat;
   wizardElement.querySelector('.wizard-eyes').style.fill = eyesColors[arrayRandElement(eyesColors)];
 
   similarListElement.appendChild(wizardElement);
 }
-
-
