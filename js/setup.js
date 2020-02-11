@@ -7,7 +7,7 @@ userDialog.classList.remove('hidden');
 // Находим и покажем окно выбора персонажей.
 document.querySelector('.setup-similar').classList.remove('hidden');
 
-//Находим блок списка похожих персонажей
+// Находим блок списка похожих персонажей
 var similarListElement = document.querySelector('.setup-similar-list');
 
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
@@ -35,8 +35,8 @@ var arrayRandElement = function (arr) {
 
 var wizards = [];
 
-//Создаем фукнцию записи объектов в массив
-var createWizard = function (wizards) {
+// Создаем фукнцию записи объектов в массив
+var createWizard = function () {
   for (var i = 0; i < WIZARD_QUANTITY; i++) {
     var wizard = {
       name: wizardNames[arrayRandElement(wizardNames)] + ' ' + wizardSurnames[arrayRandElement(wizardSurnames)],
@@ -48,18 +48,16 @@ var createWizard = function (wizards) {
   }
 };
 
-createWizard(wizards);
+createWizard();
 
-//выводим персонажей
-
-
+// выводим персонажей
 var fragment = document.createDocumentFragment();
 
-var renderWizard = function (wizards) {
+var renderWizard = function () {
   for (var i = 0; i < WIZARD_QUANTITY; i++) {
     var wizardElement = similarWizardTemplate.cloneNode(true);
 
-    //Задаем вывод характеристик из массивов
+    // Задаем вывод характеристик из массивов
     wizardElement.querySelector('.setup-similar-label').textContent = wizards[i].name;
     wizardElement.querySelector('.wizard-coat').style.fill = wizards[i].coat;
     wizardElement.querySelector('.wizard-eyes').style.fill = wizards[i].eyes;
@@ -67,5 +65,5 @@ var renderWizard = function (wizards) {
   }
 };
 
-renderWizard(wizards);
+renderWizard();
 similarListElement.appendChild(fragment);
