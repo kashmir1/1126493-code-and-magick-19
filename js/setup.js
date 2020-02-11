@@ -27,36 +27,45 @@ var coatColors = [
 ];
 var eyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
 
-var wizards = [];
-
 // Получаем случайный индекс массива
 var arrayRandElement = function (arr) {
   return Math.floor(Math.random() * arr.length);
 };
 
-var getWizards = function () {
+
+var wizards = [];
+
+//Создаем фукнцию записи объектов в массив
+var createWizard = function (wizards) {
   for (var i = 0; i < WIZARD_QUANTITY; i++) {
     var wizard = {
       name: wizardNames[arrayRandElement(wizardNames)] + ' ' + wizardSurnames[arrayRandElement(wizardSurnames)],
       coat: coatColors[arrayRandElement(eyesColors)],
       eyes: eyesColors[arrayRandElement(eyesColors)]
     };
+
     wizards.push(wizard);
   }
 };
 
+createWizard(wizards);
+
 //выводим персонажей
+
 
 var fragment = document.createDocumentFragment();
 
-for (var i = 0; i < WIZARD_QUANTITY; i++) {
-  var wizardElement = similarWizardTemplate.cloneNode(true);
+var renderWizard = function (wizards) {
+  for (var i = 0; i < WIZARD_QUANTITY; i++) {
+    var wizardElement = similarWizardTemplate.cloneNode(true);
 
-  //Задаем вывод характеристик из массивов
-  wizardElement.querySelector('.setup-similar-label').textContent = wizardNames[arrayRandElement(wizardNames)] + ' ' + wizardSurnames[arrayRandElement(wizardSurnames)];
-  wizardElement.querySelector('.wizard-coat').style.fill = coatColors[arrayRandElement(coatColors)];
-  wizardElement.querySelector('.wizard-eyes').style.fill = eyesColors[arrayRandElement(eyesColors)];
-  fragment.appendChild(wizardElement);
-}
+    //Задаем вывод характеристик из массивов
+    wizardElement.querySelector('.setup-similar-label').textContent = wizards[i].name;
+    wizardElement.querySelector('.wizard-coat').style.fill = wizards[i].coat;
+    wizardElement.querySelector('.wizard-eyes').style.fill = wizards[i].eyes;
+    fragment.appendChild(wizardElement);
+  }
+};
 
+renderWizard(wizards);
 similarListElement.appendChild(fragment);
